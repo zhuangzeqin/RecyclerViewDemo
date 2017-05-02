@@ -18,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import demo.rv.cn.eeepay.com.recyclerviewdemo.adapter.CommRecyclerBaseAdater;
 import demo.rv.cn.eeepay.com.recyclerviewdemo.adapter.TestRecyclerAdapter2;
+import demo.rv.cn.eeepay.com.recyclerviewdemo.divider.DividerGridItemDecoration;
 import demo.rv.cn.eeepay.com.recyclerviewdemo.divider.DividerItemDecoration;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 //        initLinearLayoutManager();
-//        initGridLayoutManger();
-        initStaggeredGridLayoutManager();
+        initGridLayoutManger();
+//        initStaggeredGridLayoutManager();
     }
 
     /**
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         rvList.setLayoutManager(mLayoutManager);
         //添加默认的动画效果
         rvList.setItemAnimator(new DefaultItemAnimator());
+        //设置分割线
         rvList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 //        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
         List<String> mTitles = new ArrayList<String>();
@@ -84,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager.setOrientation(OrientationHelper.VERTICAL);
         //给RecyclerView设置布局管理器
         rvList.setLayoutManager(mLayoutManager);
+        //添加默认的动画效果
+        rvList.setItemAnimator(new DefaultItemAnimator());
+        //设置分割线
+        rvList.addItemDecoration(new DividerGridItemDecoration(this));
 //        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
         List<String> mTitles = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
@@ -116,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager.setOrientation(OrientationHelper.VERTICAL);
         //给RecyclerView设置布局管理器
         rvList.setLayoutManager(mLayoutManager);
+        //添加默认的动画效果
+        rvList.setItemAnimator(new DefaultItemAnimator());
 //        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
         List<String> mTitles = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {

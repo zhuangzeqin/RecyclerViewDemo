@@ -7,7 +7,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * 描述：item 显示的布局类型
+ * 描述：item 显示的布局类型；采用安卓系统提供的注解IntDef和StringDef
  * 作者：zhuangzeqin
  * 时间: 2017/5/2-15:19
  * 邮箱：zzq@eeepay.cn
