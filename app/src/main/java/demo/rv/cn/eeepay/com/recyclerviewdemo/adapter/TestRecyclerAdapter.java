@@ -10,7 +10,7 @@ import android.widget.TextView;
 import demo.rv.cn.eeepay.com.recyclerviewdemo.R;
 
 /**
- * 描述：class describe
+ * 描述：一般使用时；的方式
  * 作者：zhuangzeqin
  * 时间: 2017/4/28-16:08
  * 邮箱：zzq@eeepay.cn

@@ -8,10 +8,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import demo.rv.cn.eeepay.com.recyclerviewdemo.adapter.TestRecyclerAdapter;
+import demo.rv.cn.eeepay.com.recyclerviewdemo.adapter.CommRecyclerBaseAdater;
+import demo.rv.cn.eeepay.com.recyclerviewdemo.adapter.TestRecyclerAdapter2;
 import demo.rv.cn.eeepay.com.recyclerviewdemo.divider.DividerItemDecoration;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        initLinearLayoutManager();
+//        initLinearLayoutManager();
 //        initGridLayoutManger();
-//        initStaggeredGridLayoutManager();
+        initStaggeredGridLayoutManager();
     }
 
     /**
@@ -46,7 +52,25 @@ public class MainActivity extends AppCompatActivity {
         //添加默认的动画效果
         rvList.setItemAnimator(new DefaultItemAnimator());
         rvList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
-        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
+//        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
+        List<String> mTitles = new ArrayList<String>();
+        for (int i = 0; i < 100; i++) {
+            int index = i + 1;
+            mTitles.add("item" + index);
+        }
+        TestRecyclerAdapter2 adapter = new TestRecyclerAdapter2(this,mTitles);
+        //设置监听事件
+        adapter.setOnItemClickLitener(new CommRecyclerBaseAdater.OnItemClickLitener<String>() {
+            @Override
+            public void onItemClick(View view, String item, int position) {
+                Toast.makeText(MainActivity.this, "onItemClick:"+item, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(View view, String item, int position) {
+                Toast.makeText(MainActivity.this, "onItemLongClick:"+item, Toast.LENGTH_SHORT).show();
+            }
+        });
         rvList.setAdapter(adapter);
     }
 
@@ -60,7 +84,25 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager.setOrientation(OrientationHelper.VERTICAL);
         //给RecyclerView设置布局管理器
         rvList.setLayoutManager(mLayoutManager);
-        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
+//        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
+        List<String> mTitles = new ArrayList<String>();
+        for (int i = 0; i < 100; i++) {
+            int index = i + 1;
+            mTitles.add("item" + index);
+        }
+        TestRecyclerAdapter2 adapter = new TestRecyclerAdapter2(this,mTitles);
+        //设置监听事件
+        adapter.setOnItemClickLitener(new CommRecyclerBaseAdater.OnItemClickLitener<String>() {
+            @Override
+            public void onItemClick(View view, String item, int position) {
+                Toast.makeText(MainActivity.this, "onItemClick:"+item, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(View view, String item, int position) {
+                Toast.makeText(MainActivity.this, "onItemLongClick:"+item, Toast.LENGTH_SHORT).show();
+            }
+        });
         rvList.setAdapter(adapter);
     }
 
@@ -74,7 +116,25 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager.setOrientation(OrientationHelper.VERTICAL);
         //给RecyclerView设置布局管理器
         rvList.setLayoutManager(mLayoutManager);
-        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
+//        TestRecyclerAdapter adapter= new TestRecyclerAdapter(this);
+        List<String> mTitles = new ArrayList<String>();
+        for (int i = 0; i < 100; i++) {
+            int index = i + 1;
+            mTitles.add("item" + index);
+        }
+        TestRecyclerAdapter2 adapter = new TestRecyclerAdapter2(this,mTitles);
+        //设置监听事件
+        adapter.setOnItemClickLitener(new CommRecyclerBaseAdater.OnItemClickLitener<String>() {
+            @Override
+            public void onItemClick(View view, String item, int position) {
+                Toast.makeText(MainActivity.this, "onItemClick:"+item, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(View view, String item, int position) {
+                Toast.makeText(MainActivity.this, "onItemLongClick:"+item, Toast.LENGTH_SHORT).show();
+            }
+        });
         rvList.setAdapter(adapter);
     }
 }
