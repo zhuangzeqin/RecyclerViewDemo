@@ -14,6 +14,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.File;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
+
 /**
  * 描述：抽象通用的一个ViewHolder
  * 作者：zhuangzeqin
@@ -123,15 +129,107 @@ public final class CommonViewHolder extends RecyclerView.ViewHolder {
 
     /**
      * 设置本地资源图片
+     *
      * @param viewId
      * @param resid
      * @return
      */
 
-    public CommonViewHolder setImage(@IdRes int viewId,@DrawableRes int resid)
-    {
+    public CommonViewHolder setImage(@IdRes int viewId, @DrawableRes int resid) {
         ImageView imageView = getView(viewId);
-        imageView.setImageResource(resid);
+        Glide.with(mContext).load(resid).crossFade().into(imageView);
         return this;
     }
+
+    /**
+     * 加载本地文件图片
+     * 例如 File file = new File(Environment.getExternalStorageDirectory(), "test.png");
+     *
+     * @param file
+     * @return
+     */
+    public CommonViewHolder setImage(@IdRes int viewId, File file) {
+        ImageView imageView = getView(viewId);
+        //加载图片
+        Glide.with(mContext).load(file).into(imageView);
+        return this;
+    }
+
+    /**
+     * 加载网络图片
+     * 例如:https://img.gcall.com/dca5/M00/10/8E/wKhoNlggetaENWylAAAAAAAAAAA457.jpg
+     *
+     * @param viewId
+     * @param url
+     * @return
+     */
+    public CommonViewHolder setImage(@IdRes int viewId, @NonNull String url) {
+        ImageView imageView = getView(viewId);
+        //加载图片
+        Glide.with(mContext).load(url).override(50,50).bitmapTransform(new CropCircleTransformation(mContext)).placeholder(android.R.drawable.stat_sys_download).error(android.R.drawable.ic_delete).crossFade().into(imageView);
+        // 设置占位图(placeholder) .placeholder(R.mipmap.place)
+        // 设置错误图片(error) error(R.mipmap.icon_photo_error).
+        // 设置动画(crossFade) crossFade(5000)
+        // 取消动画(dontAnimate)
+        // 用原图的1/10作为缩略图 thumbnail(0.1f)
+        // 指定资源的优先加载顺序 priority(Priority.HIGH)
+        // 禁止内存缓存：skipMemoryCache(true)
+        // 清除内存缓存：Glide.get(context).clearMemory(); ******必须在UI线程中调用
+        // 禁止磁盘缓存: diskCacheStrategy(DiskCacheStrategy.NONE)
+        // 清除磁盘缓存：Glide.get(applicationContext).clearDiskCache();******* 必须在后台线程中调用，建议同时clearMemory()
+        /**
+         * //用其它图片作为缩略图
+         DrawableRequestBuilder<Integer> thumbnailRequest = Glide
+         .with(this)
+         .load(R.drawable.news);
+         Glide.with(this)
+         .load("http://inthecheesefactory.com/uploads/source/nestedfragment/fragments.png")
+         .thumbnail(thumbnailRequest)
+         .into(iv_0);
+         */
+        /**
+         *  //圆形裁剪
+         Glide.with(this)
+         .load("http://inthecheesefactory.com/uploads/source/nestedfragment/fragments.png")
+         .bitmapTransform(new CropCircleTransformation(this))
+         .into(iv_0);
+         //圆角处理
+         Glide.with(this)
+         .load("http://inthecheesefactory.com/uploads/source/nestedfragment/fragments.png")
+         .bitmapTransform(new RoundedCornersTransformation(this,30,0, RoundedCornersTransformation.CornerType.ALL))
+         .into(iv_0);
+         //灰度处理
+         Glide.with(this)
+         .load("http://inthecheesefactory.com/uploads/source/nestedfragment/fragments.png")
+         .bitmapTransform(new GrayscaleTransformation(this))
+         .into(iv_0);
+         */
+        /**
+         * load SD卡资源：load("file://"+ Environment.getExternalStorageDirectory().getPath()+"/test.jpg")
+         load assets资源：load("file:///android_asset/f003.gif")
+         load raw资源：load("Android.resource://com.frank.glide/raw/raw_1")或load("android.resource://com.frank.glide/raw/"+R.raw.raw_1)
+         load drawable资源：load("android.resource://com.frank.glide/drawable/news")或load("android.resource://com.frank.glide/drawable/"+R.drawable.news)
+         load ContentProvider资源：load("content://media/external/images/media/139469")
+         load http资源：load("http://img.my.csdn.net/uploads/201508/05/1438760757_3588.jpg")
+         load https资源：load("https://img.alicdn.com/tps/TB1uyhoMpXXXXcLXVXXXXXXXXXX-476-538.jpg_240x5000q50.jpg_.webp")
+         当然，load不限于String类型，还可以：
+         load(Uri uri)，load(File file)，load(Integer resourceId)，load(URL url)，load(byte[] model)，load(T model)，loadFromMediaStore(Uri uri)。
+         */
+        return this;
+    }
+
+    /**
+     * load 一个 byte 数组
+     * @param viewId
+     * @param date
+     * @return
+     */
+    public CommonViewHolder setImage(@IdRes int viewId,@NonNull byte[] date)
+    {
+        ImageView imageView = getView(viewId);
+        Glide.with(mContext).load(date).into(imageView);
+        return this;
+    }
+
+
 }

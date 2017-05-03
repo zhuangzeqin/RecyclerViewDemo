@@ -38,7 +38,7 @@ public class TestRecyclerAdapter2 extends CommRecyclerBaseAdater<String> {
     @Override
     public void onBindView(CommonViewHolder holder, String item, int position, int viewType) {
         holder.setTextAndColor(R.id.text01,item, R.color.colorAccent);
-        holder.setImage(R.id.image01,R.mipmap.ic_launcher_round);
+        holder.setImage(R.id.image01,"https://img.gcall.com/dca5/M00/10/8E/wKhoNlggetaENWylAAAAAAAAAAA457.jpg");
     }
 
 }
