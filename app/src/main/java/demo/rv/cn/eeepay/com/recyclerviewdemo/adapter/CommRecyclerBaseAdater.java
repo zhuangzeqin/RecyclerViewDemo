@@ -133,6 +133,20 @@ public abstract class CommRecyclerBaseAdater<T> extends RecyclerView.Adapter<Com
     }
 
     /**
+     * 重新设置一个集合
+     * @param datas
+     */
+    public void setList(List<T> datas)
+    {
+        if (datas!=null)
+        {
+            mDatas.clear();
+            mDatas.addAll(datas);
+            notifyDataSetChanged();
+        }
+    }
+
+    /**
      * 添加一个集合的数据在列表的前面
      *
      * @param subDatas
