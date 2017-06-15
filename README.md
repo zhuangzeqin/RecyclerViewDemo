@@ -5,7 +5,11 @@
 
 2 支持不同item 布局显示 需要根据不同itemViewType类型选择不同的item 布局
 
+3 支持分组显示数据
 ***********************************以下给出部分代码实例***********************
+
+![image](https://github.com/zhuangzeqin/RecyclerViewDemo/blob/master/device-2017-06-14-172141.png)
+
 /**
  * 描述：显示3种不同的布局
  * 作者：zhuangzeqin
