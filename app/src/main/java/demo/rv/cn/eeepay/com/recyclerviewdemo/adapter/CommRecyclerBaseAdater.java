@@ -24,11 +24,11 @@ public abstract class CommRecyclerBaseAdater<T> extends RecyclerView.Adapter<Com
     /**
      * 数据集合
      */
-    private List<T> mDatas;
+    protected List<T> mDatas;
     /**
      * 上下文对象
      */
-    private Context mContext;
+    protected Context mContext;
 
     private LayoutInflater mInflater;
 

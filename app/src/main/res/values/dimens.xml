@@ -1,0 +1,17 @@
+<resources>
+
+    <dimen name="input_line_width">1dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="xl_textSize">23sp</dimen>
+    <dimen name="big_textSize">18sp</dimen>
+    <dimen name="middle_textSize">15sp</dimen>
+    <dimen name="small_textSize">12sp</dimen>
+    <dimen name="numpad_textSize">25sp</dimen>
+    <dimen name="middle_text_size">15sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="margin_border">15dp</dimen>
+    <dimen name="margin_detail">8dp</dimen>
+
+</resources>

@@ -36,4 +36,9 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //对图片进行裁剪、模糊、滤镜等处理：推荐使用独立的图片处理库
     compile 'jp.wasabeef:glide-transformations:2.0.2'
+    //添加头部悬浮 sticky header
+    //compile 'ca.barrenechea.header-decor:header-decor:0.2.8'
+    compile 'com.github.donkingliang:GroupedRecyclerViewAdapter:1.0.1'
+    //添加gson 解析
+    compile 'com.google.code.gson:gson:2.8.0'
 }

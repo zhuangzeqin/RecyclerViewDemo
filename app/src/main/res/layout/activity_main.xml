@@ -7,11 +7,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+<Button
+    android:id="@+id/btn_adddata"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="add data"
+    />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"
-        />
+        android:scrollbars="none" />
 </LinearLayout>
