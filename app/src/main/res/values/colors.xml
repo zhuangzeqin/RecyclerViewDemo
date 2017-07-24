@@ -14,4 +14,8 @@
     <color name="red">#fe2d3c</color>
     <color name="blue_light">#61b1fb</color>
     <color name="yellow">#ffa200</color>
+
+    <!--底色 -->
+    <color name="unify_grounding_gray">#eaeced</color>
+    <color name="unify_grounding_white">#ffffff</color>
 </resources>

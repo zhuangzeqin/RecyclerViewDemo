@@ -1,6 +1,8 @@
 package demo.rv.cn.eeepay.com.recyclerviewdemo.adapter;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
+
+import demo.rv.cn.eeepay.com.recyclerviewdemo.R;
 
 /**
  * 描述：抽象的 RecyclerBaseAdater 适配器
@@ -48,9 +52,12 @@ public abstract class CommRecyclerBaseAdater<T> extends RecyclerView.Adapter<Com
         this.mOnItemClickLitener = mOnItemClickLitener;
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public CommonViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(getItemLayoutId(viewType), parent, false);
+        //设置item 的点击效果；可以在代码里设置；或者item 根布局上设置
+        itemView.setBackground(mContext.getDrawable(R.drawable.recycler_item_selector));
         CommonViewHolder viewHolder = new CommonViewHolder(mContext, itemView,viewType);
         return viewHolder;
     }
