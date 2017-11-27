@@ -107,5 +107,10 @@ public class TestRecyclerAdapter3 extends CommRecyclerBaseAdater<String> {
         holder.setImage(R.id.image01, R.mipmap.ic_launcher_round);
     }
 }
+
+如果对你有用；不妨请小编我喝个咖啡；嘻嘻；你的动力；是我不懈努力
+
+![image](https://github.com/zhuangzeqin/APPChannel/blob/master/TIM20171109141728.png)
+
 Contact GitHub API Training Shop Blog About
 © 2017 GitHub, Inc. Terms Privacy Security Status Help
